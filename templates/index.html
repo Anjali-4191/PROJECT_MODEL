@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 420px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Health Prediction</h1>
+
+<form action="/predict" method="post">
+
+<input type="number" step="any" name="respiratory_rate" placeholder="Respiratory Rate (breaths/min)" required>
+
+<input type="number" step="any" name="crp" placeholder="C-Reactive Protein (CRP)" required>
+
+<input type="number" step="any" name="age" placeholder="Age" required>
+
+<input type="number" step="any" name="sgot" placeholder="SGOT" required>
+
+<input type="number" step="any" name="urea" placeholder="Urea" required>
+
+<input type="number" step="any" name="tlc" placeholder="TLC Count" required>
+
+<input type="number" step="any" name="corads" placeholder="CORADS Score" required>
+
+<input type="number" step="any" name="platelet" placeholder="Platelet Count" required>
+
+<input type="number" step="any" name="bmi" placeholder="BMI" required>
+
+<input type="number" step="any" name="qsofa" placeholder="qSOFA Score" required>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<div class="result">
+    {{ prediction_text }}
+</div>
+
+</div>
+
+</body>
+</html>
